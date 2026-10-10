@@ -1,4 +1,4 @@
-# 🐕 2Dog Game Engine
+# 2Dog Game Engine
 
 A modern, lightweight 2D game engine written in C++20 with a visual editor, gameplay systems, and C# scripting support.
 
