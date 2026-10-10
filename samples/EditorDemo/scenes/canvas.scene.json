@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "gravity": [
+    0,
+    -9.81
+  ],
+  "entities": [
+    {
+      "id": "Canvas",
+      "name": "Canvas",
+      "transform": {
+        "position": [
+          0,
+          0
+        ],
+        "size": [
+          1,
+          1
+        ],
+        "rotation": 0
+      },
+      "ui": {
+        "kind": "Canvas",
+        "parent": "",
+        "anchorMin": [
+          0,
+          0
+        ],
+        "anchorMax": [
+          0,
+          0
+        ],
+        "pivot": [
+          0,
+          0
+        ],
+        "offset": [
+          24,
+          24
+        ],
+        "size": [
+          240,
+          48
+        ],
+        "visible": true,
+        "color": [
+          0.12,
+          0.2,
+          0.28,
+          1
+        ],
+        "text": "",
+        "font": "bitmap",
+        "fontScale": 2,
+        "textColor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "order": 0,
+        "referenceResolution": [
+          1280,
+          720
+        ],
+        "match": 0.5,
+        "blockPointer": false,
+        "interactable": false
+      }
+    },
+    {
+      "id": "Header",
+      "name": "Header",
+      "transform": {
+        "position": [
+          0,
+          0
+        ],
+        "size": [
+          1,
+          1
+        ],
+        "rotation": 0
+      },
+      "ui": {
+        "kind": "Panel",
+        "parent": "Canvas",
+        "anchorMin": [
+          0,
+          0
+        ],
+        "anchorMax": [
+          1,
+          0
+        ],
+        "pivot": [
+          0,
+          0
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "size": [
+          0,
+          70
+        ],
+        "visible": true,
+        "color": [
+          0.12,
+          0.2,
+          0.28,
+          1
+        ],
+        "text": "2DOG / CANVAS",
+        "font": "bitmap",
+        "fontScale": 2,
+        "textColor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "order": 0
+      }
+    },
+    {
+      "id": "Score",
+      "name": "Score",
+      "transform": {
+        "position": [
+          0,
+          0
+        ],
+        "size": [
+          1,
+          1
+        ],
+        "rotation": 0
+      },
+      "ui": {
+        "kind": "Label",
+        "parent": "Canvas",
+        "anchorMin": [
+          1,
+          0
+        ],
+        "anchorMax": [
+          1,
+          0
+        ],
+        "pivot": [
+          1,
+          0
+        ],
+        "offset": [
+          -24,
+          22
+        ],
+        "size": [
+          220,
+          40
+        ],
+        "visible": true,
+        "color": [
+          0.12,
+          0.2,
+          0.28,
+          1
+        ],
+        "text": "SCORE: 00100",
+        "font": "bitmap",
+        "fontScale": 2,
+        "textColor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "order": 0
+      }
+    },
+    {
+      "id": "Card",
+      "name": "Card",
+      "transform": {
+        "position": [
+          0,
+          0
+        ],
+        "size": [
+          1,
+          1
+        ],
+        "rotation": 0
+      },
+      "ui": {
+        "kind": "Panel",
+        "parent": "Canvas",
+        "anchorMin": [
+          0.5,
+          0.5
+        ],
+        "anchorMax": [
+          0.5,
+          0.5
+        ],
+        "pivot": [
+          0.5,
+          0.5
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "size": [
+          340,
+          190
+        ],
+        "visible": true,
+        "color": [
+          0.12,
+          0.2,
+          0.28,
+          1
+        ],
+        "text": "",
+        "font": "bitmap",
+        "fontScale": 2,
+        "textColor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "order": 0
+      }
+    },
+    {
+      "id": "Title",
+      "name": "Title",
+      "transform": {
+        "position": [
+          0,
+          0
+        ],
+        "size": [
+          1,
+          1
+        ],
+        "rotation": 0
+      },
+      "ui": {
+        "kind": "Label",
+        "parent": "Card",
+        "anchorMin": [
+          0,
+          0
+        ],
+        "anchorMax": [
+          0,
+          0
+        ],
+        "pivot": [
+          0,
+          0
+        ],
+        "offset": [
+          24,
+          20
+        ],
+        "size": [
+          290,
+          48
+        ],
+        "visible": true,
+        "color": [
+          0.12,
+          0.2,
+          0.28,
+          1
+        ],
+        "text": "RESPONSIVE UI",
+        "font": "bitmap",
+        "fontScale": 2,
+        "textColor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "order": 0
+      }
+    },
+    {
+      "id": "Button",
+      "name": "Button",
+      "transform": {
+        "position": [
+          0,
+          0
+        ],
+        "size": [
+          1,
+          1
+        ],
+        "rotation": 0
+      },
+      "ui": {
+        "kind": "Button",
+        "parent": "Card",
+        "anchorMin": [
+          0,
+          0
+        ],
+        "anchorMax": [
+          0,
+          0
+        ],
+        "pivot": [
+          0,
+          0
+        ],
+        "offset": [
+          24,
+          82
+        ],
+        "size": [
+          290,
+          48
+        ],
+        "visible": true,
+        "color": [
+          0.23,
+          0.46,
+          0.7,
+          1
+        ],
+        "text": "PLAY",
+        "font": "bitmap",
+        "fontScale": 2,
+        "textColor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "order": 0
+      }
+    },
+    {
+      "id": "Volume",
+      "name": "Volume",
+      "transform": {
+        "position": [
+          0,
+          0
+        ],
+        "size": [
+          1,
+          1
+        ],
+        "rotation": 0
+      },
+      "ui": {
+        "kind": "Slider",
+        "parent": "Canvas",
+        "anchorMin": [
+          0.5,
+          1
+        ],
+        "anchorMax": [
+          0.5,
+          1
+        ],
+        "pivot": [
+          0.5,
+          1
+        ],
+        "offset": [
+          0,
+          -30
+        ],
+        "size": [
+          320,
+          28
+        ],
+        "visible": true,
+        "color": [
+          0.12,
+          0.2,
+          0.28,
+          1
+        ],
+        "text": "",
+        "font": "bitmap",
+        "fontScale": 2,
+        "textColor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "order": 0
+      }
+    }
+  ],
+  "id": "scene.canvas"
+}

@@ -1,0 +1,14 @@
+# Test locali della patch 0.7.1
+
+1. Chiudi editor e Hub. Conserva una copia dei sorgenti e del progetto di gioco. Copia il contenuto della cartella 2Dog della patch nella cartella che contiene il tuo CMakeLists.txt, mantenendo i percorsi. La patch richiede la versione 0.7 con Windows Export: non è un progetto completo. Se hai altre modifiche locali a CMakeLists.txt, Editor.cpp o apps/editor.cpp, confrontale prima di sostituirli.
+2. Da PowerShell, nella cartella principale, esegui `./scripts/build-editor.ps1 -Configuration Debug`. CMake include automaticamente i nuovi file. Se hai spostato i sorgenti, elimina prima solo la cache generata con `Remove-Item -Recurse -Force ./build/cmake/windows-csharp`, poi ricompila.
+3. Esegui `./scripts/verify.ps1 -Configuration Debug` per compilare ed eseguire la suite completa, comprese le nuove prove editor. Per ripetere soltanto queste ultime dopo la build: `ctest --test-dir build/cmake/windows-csharp -C Debug -L editor --output-on-failure`.
+4. Avvia `./scripts/run-editor.ps1 -Configuration Debug`. Controlla che siano presenti Hierarchy, Inspector, Assets, Scene, Game e Console. Avviando l'EXE da Esplora file non deve comparire una finestra CMD; PowerShell già aperta rimane naturalmente aperta.
+5. Crea un oggetto e duplicalo. Esegui Undo e Redo: controlla sia gli oggetti sia la selezione. Modifica una proprietà nell'Inspector, premi Apply e verifica Undo/Redo.
+6. Sposta, ruota e ridimensiona un oggetto in Scene. Verifica snap, Frame selected, selezione e Undo/Redo al rilascio del mouse. Controlla la Game view con tutte le risoluzioni.
+7. Crea Canvas e Button. Modifica il parent e applica. Prova a eliminare un contenitore con figli UI: deve essere rifiutato senza perdere la scena. Riassegna prima i figli, quindi riprova.
+8. Crea una cartella e uno script negli Assets. Apri lo script in Visual Studio, salvalo e attendi la compilazione. Trascinalo su un oggetto; verifica Undo/Redo dell'assegnazione. Un secondo trascinamento dello stesso tipo deve mostrare un errore senza duplicarlo.
+9. Salva la scena, modifica un oggetto, esegui Undo fino allo stato salvato: l'indicatore di modifica deve sparire. Dopo Undo, una modifica diversa deve rendere Redo indisponibile.
+10. Premi Play, Pause, Step e Stop. Controlla input e script, il blocco delle modifiche durante Play e il ripristino della scena originale allo Stop. Chiudi e riapri una scena salvata.
+11. Prova una modifica non valida e premi Apply: la scena valida deve restare disponibile. Verifica anche il dialogo di salvataggio quando cambi scena o chiudi con modifiche pendenti.
+12. Ripeti la build con `./scripts/build-editor.ps1 -Configuration Release`. Esegui un export dal pannello Build for Windows e avvia il gioco esportato seguendo TEST_EXPORT_WINDOWS.md. Segnala il numero dei punti falliti e allega i log.

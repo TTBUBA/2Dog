@@ -1,0 +1,13 @@
+#pragma once
+#include <filesystem>
+#include <functional>
+#include <string>
+#include <twodog/data/Json.hpp>
+namespace twodog {
+struct EditorContext;
+class InspectorPanel final {
+  public:
+    static void uiInspector([[maybe_unused]] EditorContext &ctx, Json &u);
+    static void draw([[maybe_unused]] EditorContext &ctx);
+};
+} // namespace twodog

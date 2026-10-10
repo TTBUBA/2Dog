@@ -1,0 +1,12 @@
+using System.Text.Json.Nodes;
+using TwoDog;
+namespace GameScripts;
+
+public sealed class MyBehaviour : Behaviour
+{
+    public override void OnCreate() { }
+    public override void OnUpdate(float deltaTime) { }
+    public override void OnFixedUpdate(float fixedDeltaTime) { }
+    public override void OnMessage(string topic, JsonNode? payload) { }
+    public override void OnDestroy() { }
+}

@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "prefab-crate",
+    "name": "prefab-crate",
+    "transform": {
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        0.6,
+        0.6
+      ],
+      "rotation": 0
+    },
+    "sprite": {
+      "color": [
+        1,
+        0.7,
+        0.3,
+        1
+      ],
+      "layer": 1,
+      "texture": "texture.atlas",
+      "uv": [
+        0,
+        0,
+        0.25,
+        1
+      ]
+    },
+    "body": {
+      "type": "dynamic",
+      "colliders": [
+        {
+          "shape": "box",
+          "halfSize": [
+            0.3,
+            0.3
+          ]
+        }
+      ]
+    },
+    "scripts": [
+      {
+        "slot": "lifetime",
+        "language": "C#",
+        "type": "GameScripts.Crate",
+        "order": 5,
+        "properties": {
+          "lifetime": 15
+        }
+      }
+    ]
+  }
+}

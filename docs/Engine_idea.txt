@@ -1,0 +1,113 @@
+# 2Dog - 2D Game Engine
+
+We're building a production-grade, simple and straightforward 2D Game Engine
+for Windows. This is professional-grade software: stable, fully tested,
+and deployable. No hacks, no shortcuts.
+
+## Dev Workflow
+- The engine is named 2Dog. Work autonomously and ask questions only
+  when absolutely necessary.
+- IMPORTANT: Do NOT look outside the working directory or use other code on
+  my computer as reference. Use only the dependencies listed here.
+- Testing is of the utmost importance: many unit tests, automated test
+  runs, and a test scene that exercises every component and the entire
+  scripting API in both C# and Python, including mixed-language scenes.
+  
+## Tech Stack
+- C++17/20 and CMake for the core engine
+- GLFW for windowing/input
+- Rendering: OpenGL 4.x for rendering (batched 2D)
+- glm for math
+- Box2D for physics
+- miniaudio for audio
+- C# (.NET) and Python for scripting (mixable, chosen per script, see Scripting)
+- Dear ImGui for the editor UI
+- stb_image / stb_truetype for assets
+
+## Architecture
+- Static library for the core engine; editor and runtime executables
+- Simple ECS (entities + components) for scene authoring
+- Scenes and prefabs serialized in a human-readable format (JSON)
+- Asset pipeline with hot reload
+- "Export" produces a standalone game executable without the editor
+- Fixed-timestep update loop, decoupled from rendering
+
+## 2D Rendering
+- Batched sprite renderer, texture atlases, sprite sheets
+- Frame-based animation system and animation state machine
+- Tilemaps with layers (import from Tiled)
+- Orthographic camera: zoom, follow, bounds, shake
+- Layers, z-order, parallax
+- 2D particles, 2D lights (optional), post-processing (optional)
+- Text rendering (TTF/bitmap), pixel-perfect mode
+
+## 2D Physics
+- Box2D integration
+- Components: Rigidbody2D, BoxCollider2D, CircleCollider2D, PolygonCollider2D
+- Triggers, raycasts, collision callbacks, joints
+- Controllable from scripts, authored via editor components
+
+## Editor
+- 2D viewport with pan/zoom, grid, snapping
+- 2D gizmos (move/rotate/scale), hierarchy, inspector, asset browser
+- Tilemap and animation editors
+- Play/pause/stop in editor, with scene state restore
+- On Stop, scene state is restored and script state of both runtimes
+  is reset
+  
+## Scripting (C# and Python, mixable in the same project)
+- C# and Python are fully equivalent. Each script is written in either
+  language, chosen per script by the developer's preference, and a
+  project can freely mix both. Neither language is privileged.
+- Strict API parity: every engine feature available in one language is
+  available in the other, with the same behavior. This is enforced by
+  automated tests that run the same test suite in both languages.
+- Documentation, script templates, examples and error messages exist
+  for both languages at the same quality level.
+- The binding layer minimizes per-call overhead (e.g. batched operations)
+  so that language choice does not meaningfully affect game design.
+- A single, language-agnostic scripting API defined once in C++, with
+  bindings generated for C# and Python.
+- Scripts in different languages never call each other directly. They
+  communicate through the engine: components, exposed properties,
+  events/messages, and shared scene state.
+- Deterministic script execution order within a frame, independent of
+  language (configurable per script).
+- Both runtimes are bundled in the exported game (only those actually
+  used by the project, if feasible).
+- Lifecycle callbacks: OnCreate, OnUpdate, OnFixedUpdate, OnDestroy
+- Access to entities/components, input, audio, physics, scene management
+- Create/destroy entities, instantiate prefabs
+- Script templates, hot reload and error reporting for both languages,
+  shown in a single console with the language indicated
+- Documented, fully tested scripting API, including mixed-language
+  scenes and cross-language communication
+
+## Audio & Input
+- miniaudio: SFX, music, buses, volume control
+- Keyboard, mouse, gamepad, with action mapping
+
+## Build
+- MSVC (Visual Studio 2022)
+- Dependencies managed via CMake FetchContent or vcpkg, so the project
+  builds on a clean machine with no manual setup
+
+## In-game UI
+- Components: Label, Button, Image, Panel, Slider, layout containers
+- Anchoring and screen-size scaling
+- Input focus, click/hover events, controllable from scripts
+- All UI components and events are fully accessible from both C# and Python
+
+## Milestones
+Proceed in phases, with tests passing at the end of each:
+window → sprites → input → physics → scripting (C# first, then Python,
+then cross-language communication) → in-game UI → editor → export
+
+## Definition of Done
+- A simple game (e.g. Breakout) can be built entirely in the editor,
+  exported as a standalone executable, and played.
+- A sample game mixes both languages in the same scene (e.g. some scripts
+  in C#, others in Python), exports correctly and runs.
+- The same sample behavior is implemented once in C# and once in Python,
+  with identical results.
+- All unit tests pass and the test scene exercises every feature.

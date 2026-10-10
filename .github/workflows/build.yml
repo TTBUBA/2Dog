@@ -1,0 +1,29 @@
+name: 2Dog foundation
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  windows:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - name: MSVC Debug and Release, core and CLI tests
+        shell: pwsh
+        run: ./scripts/verify-windows.ps1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: windows-test-reports
+          path: build/cmake/windows/test-*.xml
+  core-sanitizers:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: cmake --preset headless -DTWODOG_SANITIZERS=ON
+      - run: cmake --build --preset headless --parallel
+      - run: ctest --preset headless --output-junit tests.xml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: core-test-reports
+          path: build/cmake/headless/tests.xml
+# Hosted Windows workers do not guarantee OpenGL 4.1 hardware/driver support.
+# Graphics is an explicit local gate: ./scripts/verify-windows.ps1 -Graphics

@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "name": "2Dog Editor and UI Demo",
+  "startScene": "scene.demo",
+  "assets": [
+    {
+      "id": "texture.atlas",
+      "type": "texture",
+      "path": "assets/demo_atlas.tga"
+    },
+    {
+      "id": "audio.jump",
+      "type": "audio",
+      "path": "assets/jump.wav"
+    },
+    {
+      "id": "audio.music",
+      "type": "audio",
+      "path": "assets/music.wav"
+    },
+    {
+      "id": "scene.demo",
+      "type": "scene",
+      "path": "scenes/demo.scene.json"
+    },
+    {
+      "id": "prefab.crate",
+      "type": "prefab",
+      "path": "prefabs/crate.prefab.json"
+    },
+    {
+      "id": "map.background",
+      "type": "tilemap",
+      "path": "assets/background.tmj"
+    },
+    {
+      "id": "scene.canvas",
+      "type": "scene",
+      "path": "scenes/canvas.scene.json"
+    }
+  ],
+  "input": [
+    {
+      "action": "left",
+      "bindings": [
+        {
+          "device": "keyboard",
+          "code": 65
+        },
+        {
+          "device": "keyboard",
+          "code": 263
+        },
+        {
+          "device": "gamepad",
+          "code": 14
+        }
+      ]
+    },
+    {
+      "action": "right",
+      "bindings": [
+        {
+          "device": "keyboard",
+          "code": 68
+        },
+        {
+          "device": "keyboard",
+          "code": 262
+        },
+        {
+          "device": "gamepad",
+          "code": 12
+        }
+      ]
+    },
+    {
+      "action": "jump",
+      "bindings": [
+        {
+          "device": "keyboard",
+          "code": 32
+        },
+        {
+          "device": "gamepad",
+          "code": 0
+        }
+      ]
+    },
+    {
+      "action": "spawn",
+      "bindings": [
+        {
+          "device": "mouse",
+          "code": 0
+        }
+      ]
+    },
+    {
+      "action": "music",
+      "bindings": [
+        {
+          "device": "keyboard",
+          "code": 77
+        }
+      ]
+    },
+    {
+      "action": "message",
+      "bindings": [
+        {
+          "device": "keyboard",
+          "code": 81
+        }
+      ]
+    },
+    {
+      "action": "shake",
+      "bindings": [
+        {
+          "device": "keyboard",
+          "code": 72
+        }
+      ]
+    }
+  ],
+  "scriptTypes": [
+    "GameScripts.PlayerController",
+    "GameScripts.Crate",
+    "GameScripts.Beacon",
+    "GameScripts.UiDemo"
+  ]
+}

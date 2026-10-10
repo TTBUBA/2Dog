@@ -1,0 +1,10 @@
+/build/
+/.vs/
+/out/
+CMakeUserPresets.json
+*.user
+
+/reports/
+**/bin/
+**/obj/
+**/.twodog/

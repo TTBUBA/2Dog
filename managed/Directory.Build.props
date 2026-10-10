@@ -1,0 +1,8 @@
+<Project>
+  <PropertyGroup>
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)../build/managed/obj/$(MSBuildProjectName)/</BaseIntermediateOutputPath>
+    <BaseOutputPath>$(MSBuildThisFileDirectory)../build/managed/bin/$(MSBuildProjectName)/</BaseOutputPath>
+    <!-- Keep old source-tree bin/obj excluded when upgrading an existing checkout. -->
+    <DefaultItemExcludes>$(DefaultItemExcludes);bin/**;obj/**</DefaultItemExcludes>
+  </PropertyGroup>
+</Project>

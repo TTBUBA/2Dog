@@ -1,0 +1,151 @@
+{
+  "version": 5,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 24,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "windows",
+      "displayName": "Windows x64 - Visual Studio 2022",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/build/cmake/windows",
+      "cacheVariables": {
+        "BUILD_TESTING": "ON",
+        "TWODOG_BUILD_DESKTOP": "ON",
+        "TWODOG_OUTPUT_ROOT": "${sourceDir}/build/variants/windows"
+      }
+    },
+    {
+      "name": "windows-graphics",
+      "inherits": "windows",
+      "binaryDir": "${sourceDir}/build/cmake/windows-graphics",
+      "cacheVariables": {
+        "TWODOG_GRAPHICS_TESTS": "ON",
+        "TWODOG_OUTPUT_ROOT": "${sourceDir}/build/variants/windows-graphics"
+      }
+    },
+    {
+      "name": "headless",
+      "displayName": "Core and gameplay tests - no graphics dependencies",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build/cmake/headless",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "BUILD_TESTING": "ON",
+        "TWODOG_BUILD_DESKTOP": "OFF",
+        "TWODOG_OUTPUT_ROOT": "${sourceDir}/build/variants/headless"
+      }
+    },
+    {
+      "name": "windows-csharp",
+      "inherits": "windows",
+      "binaryDir": "${sourceDir}/build/cmake/windows-csharp",
+      "cacheVariables": {
+        "TWODOG_CSHARP": "ON",
+        "TWODOG_GRAPHICS_TESTS": "ON",
+        "TWODOG_OUTPUT_ROOT": "${sourceDir}/build"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "windows-debug",
+      "configurePreset": "windows",
+      "configuration": "Debug"
+    },
+    {
+      "name": "windows-release",
+      "configurePreset": "windows",
+      "configuration": "Release"
+    },
+    {
+      "name": "windows-graphics",
+      "configurePreset": "windows-graphics",
+      "configuration": "Debug"
+    },
+    {
+      "name": "headless",
+      "configurePreset": "headless"
+    },
+    {
+      "name": "windows-csharp-debug",
+      "configurePreset": "windows-csharp",
+      "configuration": "Debug"
+    },
+    {
+      "name": "windows-csharp-release",
+      "configurePreset": "windows-csharp",
+      "configuration": "Release"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "windows-debug",
+      "configurePreset": "windows",
+      "configuration": "Debug",
+      "output": {
+        "outputOnFailure": true
+      },
+      "execution": {
+        "noTestsAction": "error"
+      }
+    },
+    {
+      "name": "windows-release",
+      "configurePreset": "windows",
+      "configuration": "Release",
+      "output": {
+        "outputOnFailure": true
+      },
+      "execution": {
+        "noTestsAction": "error"
+      }
+    },
+    {
+      "name": "windows-graphics",
+      "configurePreset": "windows-graphics",
+      "configuration": "Debug",
+      "output": {
+        "outputOnFailure": true
+      },
+      "execution": {
+        "noTestsAction": "error"
+      }
+    },
+    {
+      "name": "headless",
+      "configurePreset": "headless",
+      "output": {
+        "outputOnFailure": true
+      },
+      "execution": {
+        "noTestsAction": "error"
+      }
+    },
+    {
+      "name": "windows-csharp-debug",
+      "configurePreset": "windows-csharp",
+      "configuration": "Debug",
+      "output": {
+        "outputOnFailure": true
+      },
+      "execution": {
+        "noTestsAction": "error"
+      }
+    },
+    {
+      "name": "windows-csharp-release",
+      "configurePreset": "windows-csharp",
+      "configuration": "Release",
+      "output": {
+        "outputOnFailure": true
+      },
+      "execution": {
+        "noTestsAction": "error"
+      }
+    }
+  ]
+}
